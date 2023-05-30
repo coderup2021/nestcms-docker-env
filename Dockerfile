@@ -13,3 +13,7 @@ COPY install-nodejs.sh /tmp/
 RUN /bin/bash /tmp/install-nodejs.sh
 
 RUN apt install iputils-ping net-tools -y
+
+RUN npm install -g pnpm
+
+WORKDIR /root/

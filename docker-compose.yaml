@@ -1,0 +1,20 @@
+version: '1'
+services:
+  mysql:
+    image: ubuntu/mysql:8.0-20.04_beta
+    container_name: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql-data:/var/docker-data/mysql
+  nginx:
+    image: lj/u2004
+    container_name: u2004
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/sites-available/default
